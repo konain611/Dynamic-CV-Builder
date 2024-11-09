@@ -18,7 +18,7 @@ export default function PersonalInfo({ formData, handleChange }) {
       <label>City *</label>
       <input type="text" name="city" value={formData.city} onChange={handleChange} required />
       <label>Country *</label>
-      <input type="text" name="country" value={formData.country} onChange={handleChange} required />
+      <input type="select" name="country" value={formData.country} onChange={handleChange} required />
       <label>About</label>
       <textarea name="about" placeholder="Write short description" value={formData.about} onChange={handleChange} />
     </div>

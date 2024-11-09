@@ -82,7 +82,7 @@ export default function Home() {
   };
 
   return (
-    <div className="">
+    <div>
 
       <div className="container">
         <span>Fields with * are required</span>
@@ -97,6 +97,7 @@ export default function Home() {
         <br></br>
         <button type="submit" className="submit-btn">Generate Resume</button>
       </div>
+      
       <GeneratedCV formData={formData} />
 
     </div>
