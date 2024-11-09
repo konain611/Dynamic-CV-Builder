@@ -2,7 +2,9 @@ import React from "react";
 
 export default function ExperienceForm({ formData, handleExperienceChange, handleAddExperience }) {
   return (
-    <div className="form-group">
+    <div id="experience" className="form-group">
+      <br></br>
+      <br></br>
       <label>Experience</label>
       {formData.experience.map((exp, index) => (
         <div key={index} className="form-group">

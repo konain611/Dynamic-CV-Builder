@@ -2,7 +2,8 @@ import React from "react";
 
 export default function SkillsForm({ formData, handleSkillChange, handleAddSkill }) {
   return (
-    <div className="form-group">
+    <div id="skills" className="form-group">
+      <br></br><br></br>
       <label>Skills</label>
       {formData.skills.map((skill, index) => (
         <div key={index} className="form-group">

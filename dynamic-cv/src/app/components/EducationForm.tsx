@@ -3,7 +3,9 @@ import React from "react";
 
 export default function EducationForm({ formData, handleEducationChange, handleAddEducation }) {
   return (
-    <div className="form-group">
+    <div id="education" className="form-group">
+      <br></br>
+      <br></br>
       <label>Education</label>
       {formData.education.map((edu, index) => (
         <div key={index} className="form-group">

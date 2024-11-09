@@ -2,7 +2,7 @@ import React from "react";
 
 export default function GeneratedCV({ formData }) {
   return (
-    <div className="generated-cv">
+    <div id="resume" className="generated-cv">
       <h2>Generated CV</h2>
       <div className="cv-content">
         <h3>{formData.fname} {formData.lname}</h3>

@@ -3,7 +3,10 @@ import React from "react";
 
 export default function PersonalInfo({ formData, handleChange }) {
   return (
-    <div className="form-group">
+    <div id="personal-info" className="form-group">
+      <br></br>
+      <br></br>
+      <h3>Personal Information</h3>
       <label>First Name *</label>
       <input type="text" name="fname" value={formData.fname} onChange={handleChange} required />
       <label>Last Name *</label>
