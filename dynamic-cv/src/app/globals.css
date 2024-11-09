@@ -1,12 +1,18 @@
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
 }
 
 .container {
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #000;
+  max-width: 1600px;
+  margin: 0.5rem auto;
+  padding: 15px;
+  background-color: #111;
   color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .title {
@@ -14,55 +20,56 @@ body {
   font-weight: bold;
   margin-bottom: 40px;
   text-align: center;
+  color: #fff;
 }
 
-
-
 .form {
-  background-color: #fff;
+  background-color: #f9f9f9;
   color: #333;
-  padding: 20px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  display: grid;
 }
 
 .form-group {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  margin-bottom: 16px;
-}
-button{
-  
-  background-color: #000;
+  flex-direction: row;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
 }
 
 .form-group label {
-  font-size: 18px;
-  display: block;
-  font-weight: bold;
-  color: #555;
   margin-bottom: 8px;
-  margin-right: 10px;
-  margin-left: 10px;
-  width: 10%;
+  /* Add some space below the label */
+  font-weight: bold;
+  /* Make label text bold */
+
 }
 
 .form-group input,
 .form-group textarea {
-  width: 70%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  /* width: 100%; */
+  padding: 12px;
   font-size: 1rem;
-  outline: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border 0.3s ease;
+  margin-right: 13px;
+}
 
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 .form-group textarea {
-  width: 150%;
+  resize: vertical;
+  min-height: 40px;
 }
 
 .button-container {
@@ -70,14 +77,78 @@ button{
   margin-top: 20px;
 }
 
+/* Global styles for input fields */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Adjust the container for education entries */
+.education-container,
+.experience-container,
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  /* Stack entries vertically */
+}
+
+
+.education-entry,
+.experience-entry,
+.skills-entry {
+  display: flex;
+  flex-direction: column;
+  /* Stack form elements vertically */
+  margin-bottom: 15px;
+  padding: 10px;
+
+  background-color: #f9f9f9;
+  /* Optional: light background color */
+}
+
+/* Input field styles */
+.education-entry input,
+.education-entry textarea {
+  margin: 5px 0;
+  /* Space between inputs */
+  padding: 10px;
+  /* Inner padding for inputs */
+  border: 1px solid #ccc;
+  /* Border for inputs */
+  border-radius: 4px;
+  /* Rounded corners */
+  font-size: 16px;
+  /* Font size */
+}
+
+/* Button styles */
+button {
+  display: inline-block;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  /* Bootstrap primary color */
+  color: white;
+  cursor: pointer;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+  /* Darker shade on hover */
+}
+
 .submit-btn {
   background-color: #007bff;
   color: #fff;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .submit-btn:hover {
@@ -89,34 +160,81 @@ button{
 }
 
 .generated-cv h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
+  color: #333;
 }
 
 .cv-content {
   background-color: #1e1c2e;
+  color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cv-content h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #e4e4f9;
+  margin-bottom: 10px;
 }
 
 .cv-content h4 {
-  margin-top: 16px;
+  font-size: 1.25rem;
   font-weight: bold;
+  color: #f2f2f2;
+  margin-top: 16px;
+  margin-bottom: 6px;
 }
 
-.title:hover,
-.form-group:hover,
-.form-group label:hover {
+.cv-section {
+  margin-bottom: 16px;
+}
+
+.cv-section p {
+  margin: 4px 0;
+}
+
+.title:hover {
+  color: #1e90ff;
   font-style: italic;
   cursor: pointer;
-  color: black;
-  font-weight: bolder;
 }
-.title:hover{
-  color: white;
+
+.form-group label:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: #333;
+}
+
+@media (min-width: 600px) {
+  .form-group {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .form-group label,
+  h4 {
+    width: 20%;
+    text-align: left;
+    margin-right: 15px;
+  }
+
+  h4 {
+    width: 11%
+  }
+
+  .form-group input {
+    width: 70%;
+  }
+
+  .form-group textarea {
+    width: 160%;
+  }
 }

@@ -1,5 +1,3 @@
-// app/page.js or pages/index.js
-
 "use client";
 
 import { useState } from "react";
@@ -111,40 +109,42 @@ export default function Home() {
         <div className="form-group">
           <h4>Education</h4>
           {formData.education.map((edu, index) => (
-            <div key={index} className="education-entry">
-              <input
-                type="text"
-                name="institution"
-                value={edu.institution}
-                onChange={(e) => handleEducationChange(index, e)}
-                placeholder="Institution Name"
-                required
-              />
-              <input
-                type="text"
-                name="type"
-                value={edu.type}
-                onChange={(e) => handleEducationChange(index, e)}
-                placeholder="Type of Education"
-                required
-              />
-              <input
-                type="text"
-                name="years"
-                value={edu.years}
-                onChange={(e) => handleEducationChange(index, e)}
-                placeholder="Years of Education"
-                required
-              />
-              <input
-                type="text"
-                name="field"
-                value={edu.field}
-                onChange={(e) => handleEducationChange(index, e)}
-                placeholder="Field of Study"
-                required
-              />
-            </div>
+            <div className="education-container">
+              <div key={index} className="education-entry">
+                <input
+                  type="text"
+                  name="institution"
+                  value={edu.institution}
+                  onChange={(e) => handleEducationChange(index, e)}
+                  placeholder="Institution Name"
+                  required
+                />
+                <input
+                  type="text"
+                  name="type"
+                  value={edu.type}
+                  onChange={(e) => handleEducationChange(index, e)}
+                  placeholder="Type of Education"
+                  required
+                />
+                <input
+                  type="text"
+                  name="years"
+                  value={edu.years}
+                  onChange={(e) => handleEducationChange(index, e)}
+                  placeholder="Years of Education"
+                  required
+                />
+                <input
+                  type="text"
+                  name="field"
+                  value={edu.field}
+                  onChange={(e) => handleEducationChange(index, e)}
+                  placeholder="Field of Study"
+                  required
+                />
+              </div>
+          </div>
           ))}
           <button type="button" onClick={handleAddEducation}>
             Add Education
@@ -155,7 +155,8 @@ export default function Home() {
         <div className="form-group">
           <h4>Experience</h4>
           {formData.experience.map((exp, index) => (
-            <div key={index} className="experience-entry">
+            <div className="experience-container">
+              <div key={index} className="experience-entry">
               <input
                 type="text"
                 name="company"
@@ -180,14 +181,9 @@ export default function Home() {
                 placeholder="Years of Experience"
                 required
               />
-              <textarea
-                name="description"
-                value={exp.description}
-                onChange={(e) => handleExperienceChange(index, e)}
-                placeholder="Experience Description"
-                required
-              />
+              
             </div>
+              </div>
           ))}
           <button type="button" onClick={handleAddExperience}>
             Add Experience
