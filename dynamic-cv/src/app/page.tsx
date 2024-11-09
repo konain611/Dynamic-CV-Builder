@@ -15,9 +15,9 @@ export default function Home() {
     lname: "",
     email: "",
     phone: "",
-    about: "",
     city: "",
     country: "",
+    about: "",
     education: [],
     experience: [],
     skills: [],
@@ -83,7 +83,10 @@ export default function Home() {
 
   return (
     <div className="container">
+
       <h1 className="title">Dynamic Resume Builder</h1>
+      <span>Fields with * are required</span>
+
       <form onSubmit={handleSubmit}>
         <PersonalInfo formData={formData} handleChange={handleChange} />
         <EducationForm formData={formData} handleEducationChange={handleEducationChange} handleAddEducation={handleAddEducation} />
@@ -91,7 +94,9 @@ export default function Home() {
         <SkillsForm formData={formData} handleSkillChange={handleSkillChange} handleAddSkill={handleAddSkill} />
         <button type="submit" className="submit-btn">Generate CV</button>
       </form>
+
       <GeneratedCV formData={formData} />
+
     </div>
   );
 }
