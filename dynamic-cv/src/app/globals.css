@@ -16,16 +16,11 @@ h3 {
 }
 
 .container span {
-  color: red;
-  font-size: 20px;
-  text-align: center;
-}
-
-.container span2 {
   color: rgb(255, 255, 255);
   font-size: 15px;
   text-align: center;
 }
+
 
 .navbar {
   position: fixed;

@@ -88,10 +88,10 @@ export default function SkillsInput({ selectedSkills, onSkillSelect, onSkillRemo
 
             <div className={styles.selectedSkills}>
                 {selectedSkills.map((skill, index) => (
-                    <span2 key={index} className={styles.skillTag}>
+                    <span key={index} className={styles.skillTag}>
                         {skill}
-                        <span2 className={styles.remove} onClick={() => onSkillRemove(skill)}>×</span2>
-                    </span2>
+                        <span className={styles.remove} onClick={() => onSkillRemove(skill)}>X</span>
+                    </span>
                 ))}
             </div>
         </div>
