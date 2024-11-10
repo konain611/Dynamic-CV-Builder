@@ -21,11 +21,14 @@ export default function GeneratedCV({ formData }) {
 
   return (
     <div>
+      
       <br />
       <h1 id="resume" className="title">
         Generated resume
       </h1>
-
+      <button onClick={handleDownload} className="down-cv-btn">
+        Download Resume
+      </button>
       <div ref={resumeRef} className="generated-cv">
         {/* Header Section */}
         <div className="cv-header">
@@ -99,9 +102,7 @@ export default function GeneratedCV({ formData }) {
       </div>
 
       {/* Download Button */}
-      <button onClick={handleDownload} className="download-btn">
-        Download Resume
-      </button>
+      
     </div>
   );
 }

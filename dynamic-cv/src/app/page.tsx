@@ -97,7 +97,7 @@ export default function Home() {
             handleSkillSelect={handleSkillSelect} 
             handleSkillRemove={handleSkillRemove} 
           />
-          <button type="submit" className="gen-cv-btn">Generate Resume</button>
+          <button type="submit" className=" gen-cv-btn">Generate Resume</button>
         </form>
       </div>
       
