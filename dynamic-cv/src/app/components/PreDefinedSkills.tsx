@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './SkillsInput.module.css'; 
 
 const predefinedSkills = [
     "Agile", "Algorithms", "Angular", "Apache", "AutoCAD", "AWS", "Babel", "Big Data", 
@@ -75,22 +74,22 @@ export default function SkillsInput({ selectedSkills, onSkillSelect, onSkillRemo
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Type to search skills..."
-                className={styles.skillsInput}
+                className="skillsInput"
             />
 
-            <div className={styles.suggestions}>
+            <div className="suggestions">
                 {suggestions.map((skill, index) => (
-                    <div key={index} className={styles.suggestion} onClick={() => selectSkill(skill)}>
+                    <div key={index} className="suggestions" onClick={() => selectSkill(skill)}>
                         {skill}
                     </div>
                 ))}
             </div>
 
-            <div className={styles.selectedSkills}>
+            <div className="selectedSkills">
                 {selectedSkills.map((skill, index) => (
-                    <span key={index} className={styles.skillTag}>
+                    <span key={index} className="skillTag">
                         {skill}
-                        <span className={styles.remove} onClick={() => onSkillRemove(skill)}>X</span>
+                        <span className="remove" onClick={() => onSkillRemove(skill)}>X</span>
                     </span>
                 ))}
             </div>

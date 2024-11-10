@@ -111,14 +111,14 @@ export default function Home() {
     setShowCV(true);
   };
 
-  function scrollToSection() {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({
-        top: 1800, // Adjust this value as needed
-        behavior: "smooth",
-      });
-    }
-  }
+  // function scrollToSection() {
+  //   if (typeof window !== 'undefined') {
+  //     window.scrollTo({
+  //       top: 1800, // Adjust this value as needed
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }
 
   return (
     <div>
@@ -144,7 +144,6 @@ export default function Home() {
             type="submit"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection();
               handleSubmit(e);
             }}
             className="gen-cv-btn"
@@ -152,8 +151,8 @@ export default function Home() {
             Generate Resume
           </button>
         </ form>
-        {showCV && <GeneratedCV formData={formData} />}
       </div>
+        {showCV && <GeneratedCV formData={formData} />}
     </div>
   );
 }
