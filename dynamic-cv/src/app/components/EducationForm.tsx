@@ -6,7 +6,7 @@ export default function EducationForm({ formData, handleEducationChange, handleA
     <div id="education" className="form-group">
       <br></br>
       <br></br>
-      <label>Education</label>
+      <label>Education & Certifications</label>
       {formData.education.map((edu, index) => (
         <div key={index} className="form-group">
           <input type="text" name="institution" placeholder="Institution Name *" value={edu.institution} onChange={(e) => handleEducationChange(index, e)} required />

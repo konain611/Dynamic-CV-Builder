@@ -20,6 +20,7 @@ h3 {
   font-size: 20px;
   text-align: center;
 }
+
 .container span2 {
   color: rgb(255, 255, 255);
   font-size: 15px;
@@ -133,14 +134,14 @@ h3 {
 button,
 .submit-btn {
   padding: 12px 24px;
-  border: none;
+  border: 1px solid white;
   border-radius: 5px;
   background-color: #000000;
   color: #ffffff;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.15s ease;
 }
 
 button:hover,
@@ -151,73 +152,183 @@ button:hover,
   border-radius: 5px;
 }
 
-.submit-btn:hover {
-  font-size: 1.3rem;
-}
 
 button:active,
 .submit-btn:active {
   background-color: #000000;
   color: #ffffff;
 }
-
-
+/* Overall CV Container */
 .generated-cv {
-  margin-top: 40px;
-}
-
-.generated-cv h2 {
-  font-size: 1.75rem;
-  font-weight: bold;
-  color: #000000;
-}
-
-.cv-content {
-  background-color: #21262d;
-  color: #f0f6fc;
+  width: 210mm;
+  height: 297mm;
   padding: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #1a1a1a; /* Black background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  margin-top: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f1f1f1; /* Light grey text */
 }
 
-.cv-content h3 {
+/* Header Section */
+.generated-cv .cv-header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 3px solid #001f3d; /* Navy blue accent border */
+}
+
+.generated-cv .cv-header h1 {
+  font-size: 2.5rem;
+  color: #ffffff; /* White text for title */
+  margin: 0;
+  font-weight: 700;
+}
+
+.generated-cv .cv-header h2 {
+  font-size: 1.3rem;
+  color: #b0b0b0; /* Light grey text */
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.generated-cv .cv-header p {
+  font-size: 0.95rem;
+  color: #b0b0b0; /* Light grey for less emphasis */
+  margin: 5px 0 0;
+}
+
+/* Layout for Main Content */
+.cv-content {
+  display: flex;
+  margin-top: 30px;
+  gap: 25px;
+}
+
+/* Left Column - Contact Info & Skills */
+.cv-left {
+  width: 30%;
+  background-color: #2c2f36; /* Dark grey background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cv-left .section-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #58a6ff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #ffffff; /* White text for section titles */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #001f3d; /* Navy blue border */
+  padding-bottom: 5px;
 }
 
-.cv-content h4 {
-  font-size: 1.25rem;
+.cv-left p, .cv-left ul {
+  font-size: 1rem;
+  color: #dcdcdc; /* Light grey text */
+  line-height: 1.6;
+}
+
+.cv-left ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cv-left ul li {
+  padding: 8px 0;
+}
+
+/* Right Column - Profile, Experience, Education */
+.cv-right {
+  width: 70%;
+}
+
+.cv-right .section-title {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #f0f6fc;
-  margin-top: 16px;
-  margin-bottom: 6px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #ffffff; /* White text for section titles */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #001f3d; /* Navy blue border */
+  padding-bottom: 5px;
 }
 
-.cv-section {
-  margin-bottom: 16px;
+/* Profile Section */
+.cv-profile {
+  padding: 10px 0 20px;
 }
 
-.cv-section p {
-  margin: 4px 0;
+.cv-profile p {
+  font-size: 1rem;
+  color: #dcdcdc; /* Light grey text */
+  line-height: 1.6;
 }
 
-.footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #161b22;
-  color: #b3b3b3;
-  font-size: 0.9rem;
+/* Experience Section */
+.cv-experience .experience-item {
+  margin-bottom: 25px;
 }
 
-.footer a {
-  color: #58a6ff;
-  text-decoration: none;
+.cv-experience .experience-item h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff; /* White text for job titles */
+  margin-bottom: 7px;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+.cv-experience .experience-item h5 {
+  font-size: 1rem;
+  color: #a6a6a6; /* Medium grey for subtext */
+  margin-bottom: 12px;
+}
+
+.cv-experience .experience-item p {
+  font-size: 1rem;
+  color: #dcdcdc; /* Light grey text */
+  line-height: 1.6;
+}
+
+/* Education Section */
+.cv-education .education-item {
+  margin-bottom: 20px;
+}
+
+.cv-education .education-item h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff; /* White text for education titles */
+}
+
+.cv-education .education-item p {
+  font-size: 1rem;
+  color: #dcdcdc; /* Light grey text */
+  margin: 5px 0;
+}
+
+/* Skills Section */
+.cv-skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cv-skills ul li {
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #011426; /* Navy blue for skill tags */
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+
+
+@media print {
+  .a4-container {
+    page-break-after: always;
+  }
 }
 
 @media (max-width: 768px) {

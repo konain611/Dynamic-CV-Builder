@@ -37,12 +37,9 @@ const predefinedSkills =[
     "Communication", "Creativity", "Collaboration", "Empathy", "Emotional Intelligence", "Conflict Resolution", 
     "Negotiation", "Customer Service"
   ];
-
-export default function SkillsInput() {
+  export default function SkillsInput({ selectedSkills, onSkillSelect, onSkillRemove }) {
     const [input, setInput] = useState('');
-    const [selectedSkills, setSelectedSkills] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
-
 
     const handleInputChange = (e) => {
         const inputValue = e.target.value.toLowerCase();
@@ -58,13 +55,9 @@ export default function SkillsInput() {
     };
 
     const selectSkill = (skill) => {
-        setSelectedSkills([...selectedSkills, skill]);
+        onSkillSelect(skill);
         setInput('');
         setSuggestions([]);
-    };
-
-    const removeSkill = (skill) => {
-        setSelectedSkills(selectedSkills.filter(s => s !== skill));
     };
 
     return (
@@ -89,7 +82,7 @@ export default function SkillsInput() {
                 {selectedSkills.map((skill, index) => (
                     <span2 key={index} className={styles.skillTag}>
                         {skill}
-                        <span2 className={styles.remove} onClick={() => removeSkill(skill)}>×</span2>
+                        <span2 className={styles.remove} onClick={() => onSkillRemove(skill)}>×</span2>
                     </span2>
                 ))}
             </div>

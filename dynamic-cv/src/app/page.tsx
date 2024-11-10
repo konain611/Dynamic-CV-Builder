@@ -48,12 +48,6 @@ export default function Home() {
     });
   };
 
-  const handleAddSkill = () => {
-    setFormData({
-      ...formData,
-      skills: [...formData.skills, { skill: "", level: "" }],
-    });
-  };
 
   const handleEducationChange = (index, e) => {
     const { name, value } = e.target;
@@ -69,37 +63,46 @@ export default function Home() {
     setFormData({ ...formData, experience: newExperience });
   };
 
-  const handleSkillChange = (index, e) => {
-    const { name, value } = e.target;
-    const newSkills = [...formData.skills];
-    newSkills[index] = { ...newSkills[index], [name]: value };
-    setFormData({ ...formData, skills: newSkills });
+  const handleSkillSelect = (skill) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      skills: [...prevData.skills, skill],
+    }));
   };
+
+  const handleSkillRemove = (skill) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      skills: prevData.skills.filter(s => s !== skill),
+    }));
+  };
+
+  const [showCV, setShowCV] = useState(false); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    setShowCV(true); 
+    setButtonText("See Below");
   };
 
+  
   return (
     <div>
-
       <div className="container">
-        <span>Fields with * are required</span>
-
         <form onSubmit={handleSubmit}>
           <PersonalInfo formData={formData} handleChange={handleChange} />
           <EducationForm formData={formData} handleEducationChange={handleEducationChange} handleAddEducation={handleAddEducation} />
           <ExperienceForm formData={formData} handleExperienceChange={handleExperienceChange} handleAddExperience={handleAddExperience} />
-          <SkillsForm formData={formData} handleSkillChange={handleSkillChange} handleAddSkill={handleAddSkill} />
+          <SkillsForm 
+            formData={formData} 
+            handleSkillSelect={handleSkillSelect} 
+            handleSkillRemove={handleSkillRemove} 
+          />
+          <button type="submit" className="form-group submit-btn">Generate Resume</button>
         </form>
-        <br></br>
-        <br></br>
-        <button type="submit" className="submit-btn">Generate Resume</button>
       </div>
       
-      <GeneratedCV formData={formData} />
-
+      {showCV && <GeneratedCV formData={formData} />}
     </div>
   );
 }

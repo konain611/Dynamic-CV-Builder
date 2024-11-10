@@ -5,7 +5,7 @@ export default function ExperienceForm({ formData, handleExperienceChange, handl
     <div id="experience" className="form-group">
       <br></br>
       <br></br>
-      <label>Experience</label>
+      <label>Experience (if any)</label>
       {formData.experience.map((exp, index) => (
         <div key={index} className="form-group">
           <input type="text" name="company" placeholder="Company" value={exp.company} onChange={(e) => handleExperienceChange(index, e)} required />
