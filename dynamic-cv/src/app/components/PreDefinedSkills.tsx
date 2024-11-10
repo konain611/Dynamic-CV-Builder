@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SkillsInput.module.css'; 
 
-const predefinedSkills =[
+const predefinedSkills = [
     "Agile", "Algorithms", "Angular", "Apache", "AutoCAD", "AWS", "Babel", "Big Data", 
     "Blender", "Blockchain", "Bootstrap", "CI/CD", "Command Line", "Content Writing", 
     "Contentful", "Copywriting", "Cybersecurity", "Data Analysis", "Data Science", 
@@ -10,7 +10,7 @@ const predefinedSkills =[
     "Git", "GitHub", "Google Analytics", "Google Cloud", "HTML", "Illustrator", 
     "InDesign", "Interpersonal Skills", "Java", "JavaScript", "JIRA", "jQuery", "Keras", 
     "Kubernetes", "Linux", "Machine Learning", "Material UI", "Microsoft Office", 
-    "MongoDB", "MySQL", "Nginx", "NoSQL", "Node.js", "Notion", "PHP", "Penetration Testing", 
+    "MongoDB", "MySQL", "Nginx", "NoSQL", "Node.js", "Next.js", "Notion", "PHP", "Penetration Testing", 
     "Photoshop", "Power BI", "PowerPoint", "Product Management", "Project Management", 
     "Python", "R", "React", "REST API", "Ruby on Rails", "Salesforce", "Scikit-learn", 
     "Sketch", "Smart Contracts", "Solidity", "Spring Boot", "SQL", "Tableau", "Tailwind CSS", 
@@ -37,11 +37,19 @@ const predefinedSkills =[
     "Communication", "Creativity", "Collaboration", "Empathy", "Emotional Intelligence", "Conflict Resolution", 
     "Negotiation", "Customer Service"
   ];
-  export default function SkillsInput({ selectedSkills, onSkillSelect, onSkillRemove }) {
-    const [input, setInput] = useState('');
-    const [suggestions, setSuggestions] = useState([]);
 
-    const handleInputChange = (e) => {
+// Define the types for the props
+interface SkillsInputProps {
+    selectedSkills: string[];
+    onSkillSelect: (skill: string) => void;
+    onSkillRemove: (skill: string) => void;
+}
+
+export default function SkillsInput({ selectedSkills, onSkillSelect, onSkillRemove }: SkillsInputProps) {
+    const [input, setInput] = useState<string>('');
+    const [suggestions, setSuggestions] = useState<string[]>([]);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value.toLowerCase();
         setInput(inputValue);
 
@@ -54,7 +62,7 @@ const predefinedSkills =[
         }
     };
 
-    const selectSkill = (skill) => {
+    const selectSkill = (skill: string) => {
         onSkillSelect(skill);
         setInput('');
         setSuggestions([]);

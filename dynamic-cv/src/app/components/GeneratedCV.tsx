@@ -1,27 +1,64 @@
 import React, { useRef } from "react";
 import html2pdf from "html2pdf.js";
 
-export default function GeneratedCV({ formData }) {
-  const resumeRef = useRef();
+// Define the structure of each education entry
+interface EducationEntry {
+  institution: string;
+  type: string;
+  years: string;
+  field: string;
+}
+
+// Define the structure of each experience entry
+interface ExperienceEntry {
+  company: string;
+  position: string;
+  years: string;
+  description: string;
+}
+
+// Define the structure of the form data
+interface FormData {
+  fname: string;
+  lname: string;
+  position: string;
+  email: string;
+  phone: string;
+  city: string;
+  country: string;
+  skills: string[];
+  about: string;
+  education: EducationEntry[];
+  experience: ExperienceEntry[];
+}
+
+// Define the props for the GeneratedCV component
+interface GeneratedCVProps {
+  formData: FormData;
+}
+
+export default function GeneratedCV({ formData }: GeneratedCVProps) {
+  const resumeRef = useRef<HTMLDivElement>(null); // Specify the ref type
 
   const handleDownload = () => {
     const element = resumeRef.current;
-    const options = {
-      margin: 1,
-      filename: "generated_resume.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-    };
-    html2pdf()
-      .from(element)
-      .set(options)
-      .save();
+    if (element) {
+      const options = {
+        margin: 1,
+        filename: "generated_resume.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
+      html2pdf()
+        .from(element)
+        .set(options)
+        .save();
+    }
   };
 
   return (
     <div>
-      
       <br />
       <h1 id="resume" className="title">
         Generated resume
@@ -100,9 +137,6 @@ export default function GeneratedCV({ formData }) {
           </div>
         </div>
       </div>
-
-      {/* Download Button */}
-      
     </div>
   );
 }
