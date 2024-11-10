@@ -17,7 +17,7 @@ interface Education {
 
 interface Experience {
   company: string;
-  position: string; // position should be part of the experience
+  position: string;
   years: string;
   description: string;
 }
@@ -33,7 +33,7 @@ interface FormData {
   education: Education[];
   experience: Experience[];
   skills: string[];
-  position: string; // Ensure this line is included
+  position: string; // Ensure this field is included
 }
 
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
     experience: [{ company: "", position: "", years: "", description: "" }],
     skills: [],
     position: "", // Add the position field here with an initial value
-});
+  });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -71,7 +71,7 @@ export default function Home() {
       ...prevData,
       experience: [
         ...prevData.experience,
-        { company: "", position: "", years: "", description: "" }, // initialize with position
+        { company: "", position: "", years: "", description: "" },
       ],
     }));
   };
@@ -112,10 +112,12 @@ export default function Home() {
   };
 
   function scrollToSection() {
-    window.scrollTo({
-      top: 1800, // Adjust this value as needed
-      behavior: "smooth",
-    });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 1800, // Adjust this value as needed
+        behavior: "smooth",
+      });
+    }
   }
 
   return (
@@ -149,9 +151,9 @@ export default function Home() {
           >
             Generate Resume
           </button>
-        </form>
+        </ form>
+        {showCV && <GeneratedCV formData={formData} />}
       </div>
-      {showCV && <GeneratedCV formData={formData} />}
     </div>
   );
 }
