@@ -82,7 +82,6 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowCV(true); 
-    setButtonText("See Below");
   };
 
   
@@ -98,7 +97,7 @@ export default function Home() {
             handleSkillSelect={handleSkillSelect} 
             handleSkillRemove={handleSkillRemove} 
           />
-          <button type="submit" className="form-group submit-btn">Generate Resume</button>
+          <button type="submit" className="gen-cv-btn">Generate Resume</button>
         </form>
       </div>
       

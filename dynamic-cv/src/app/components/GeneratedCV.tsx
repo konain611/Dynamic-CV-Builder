@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useRef } from "react";
+import html2pdf from "html2pdf.js";
 
 export default function GeneratedCV({ formData }) {
+  const resumeRef = useRef();
+
+  const handleDownload = () => {
+    const element = resumeRef.current;
+    const options = {
+      margin: 1,
+      filename: "generated_resume.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    };
+    html2pdf()
+      .from(element)
+      .set(options)
+      .save();
+  };
+
   return (
     <div>
-      <br></br>
-      <h1 id="resume" className="title">Generated resume</h1>
+      <br />
+      <h1 id="resume" className="title">
+        Generated resume
+      </h1>
 
-      <div className="generated-cv">
+      <div ref={resumeRef} className="generated-cv">
         {/* Header Section */}
         <div className="cv-header">
-          <h1>{formData.fname} {formData.lname}</h1>
+          <h1>
+            {formData.fname} {formData.lname}
+          </h1>
           <h2>{formData.position}</h2>
-          <p>Email: {formData.email} | Phone: {formData.phone} | Location: {formData.city}, {formData.country}</p>
+          <p>
+            Email: {formData.email} | Phone: {formData.phone} | Location:{" "}
+            {formData.city}, {formData.country}
+          </p>
         </div>
 
         {/* Main Content Section */}
@@ -43,9 +68,15 @@ export default function GeneratedCV({ formData }) {
               {formData.education.map((edu, index) => (
                 <div key={index} className="education-item">
                   <h4>{edu.institution}</h4>
-                  <p><strong>Type:</strong> {edu.type}</p>
-                  <p><strong>Years:</strong> {edu.years}</p>
-                  <p><strong>Field:</strong> {edu.field}</p>
+                  <p>
+                    <strong>Type:</strong> {edu.type}
+                  </p>
+                  <p>
+                    <strong>Years:</strong> {edu.years}
+                  </p>
+                  <p>
+                    <strong>Field:</strong> {edu.field}
+                  </p>
                 </div>
               ))}
             </div>
@@ -56,7 +87,9 @@ export default function GeneratedCV({ formData }) {
               {formData.experience.map((exp, index) => (
                 <div key={index} className="experience-item">
                   <h4>{exp.company}</h4>
-                  <h5>{exp.position} | {exp.years}</h5>
+                  <h5>
+                    {exp.position} | {exp.years}
+                  </h5>
                   <p>{exp.description}</p>
                 </div>
               ))}
@@ -64,6 +97,11 @@ export default function GeneratedCV({ formData }) {
           </div>
         </div>
       </div>
+
+      {/* Download Button */}
+      <button onClick={handleDownload} className="download-btn">
+        Download Resume
+      </button>
     </div>
   );
 }

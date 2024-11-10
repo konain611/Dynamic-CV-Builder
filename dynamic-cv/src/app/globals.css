@@ -143,6 +143,9 @@ button,
   cursor: pointer;
   transition: background-color 0.15s ease;
 }
+.gen-cv-btn{
+ 
+}
 
 button:hover,
 .submit-btn:hover {
@@ -158,10 +161,12 @@ button:active,
   background-color: #000000;
   color: #ffffff;
 }
+
+
 /* Overall CV Container */
 .generated-cv {
   width: 210mm;
-  min-height: 297mm;
+  min-height: 290mm;
   max-height: auto;
   padding: 20px;
   margin: 0 auto;
