@@ -31,8 +31,9 @@ interface FormData {
   country: string;
   about: string;
   education: Education[];
-  experience: Experience[]; // ensure experience has position field
+  experience: Experience[];
   skills: string[];
+  position: string; // Ensure this line is included
 }
 
 export default function Home() {
@@ -45,9 +46,10 @@ export default function Home() {
     country: "",
     about: "",
     education: [],
-    experience: [{ company: "", position: "", years: "", description: "" }], // position is initialized here
+    experience: [{ company: "", position: "", years: "", description: "" }],
     skills: [],
-  });
+    position: "", // Add the position field here with an initial value
+});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
