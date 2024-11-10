@@ -12,7 +12,7 @@ interface EducationEntry {
 // Define the structure of each experience entry
 interface ExperienceEntry {
   company: string;
-  position: string;
+  position: string; // Position field should exist
   years: string;
   description: string;
 }
@@ -21,7 +21,7 @@ interface ExperienceEntry {
 interface FormData {
   fname: string;
   lname: string;
-  position: string;
+  position: string; // Position field
   email: string;
   phone: string;
   city: string;
@@ -29,7 +29,7 @@ interface FormData {
   skills: string[];
   about: string;
   education: EducationEntry[];
-  experience: ExperienceEntry[];
+  experience: ExperienceEntry[]; // Ensure experience includes position
 }
 
 // Define the props for the GeneratedCV component

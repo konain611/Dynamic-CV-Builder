@@ -17,7 +17,7 @@ interface Education {
 
 interface Experience {
   company: string;
-  position: string;
+  position: string; // position should be part of the experience
   years: string;
   description: string;
 }
@@ -31,7 +31,7 @@ interface FormData {
   country: string;
   about: string;
   education: Education[];
-  experience: Experience[];
+  experience: Experience[]; // ensure experience has position field
   skills: string[];
 }
 
@@ -45,7 +45,7 @@ export default function Home() {
     country: "",
     about: "",
     education: [],
-    experience: [],
+    experience: [{ company: "", position: "", years: "", description: "" }], // position is initialized here
     skills: [],
   });
 
@@ -69,7 +69,7 @@ export default function Home() {
       ...prevData,
       experience: [
         ...prevData.experience,
-        { company: "", position: "", years: "", description: "" },
+        { company: "", position: "", years: "", description: "" }, // initialize with position
       ],
     }));
   };
