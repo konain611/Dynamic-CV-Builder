@@ -84,7 +84,13 @@ export default function Home() {
     setShowCV(true); 
   };
 
-  
+  function scrollToSection() {
+    window.scrollTo({
+      top: 1800, // Adjust this value as needed
+      behavior: "smooth"
+    });
+  }
+
   return (
     <div>
       <div className="container">
@@ -97,10 +103,13 @@ export default function Home() {
             handleSkillSelect={handleSkillSelect} 
             handleSkillRemove={handleSkillRemove} 
           />
-          <button type="submit" className=" gen-cv-btn">Generate Resume</button>
+          <button type="submit" onClick={scrollToSection()} className=" gen-cv-btn">Generate Resume</button>
         </form>
       </div>
       
+ 
+  
+
       {showCV && <GeneratedCV formData={formData} />}
     </div>
   );
